@@ -1,0 +1,31 @@
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+    <h1>Add Task:</h1>
+    <form action="{% url 'tasks:add' %}" method="post">
+        {% csrf_token %}
+        {{ form }}  <!-- <input type="text", name="task">  Esto es lo que había antes de usar Django Forms -->
+        <input type="submit">
+    </form>
+
+    <a href="{% url 'tasks:index' %}">view Tasks</a>
+{% endblock %}
+
+<!--
+****************************************************************
+***  ESTO ERA COMO ESTABA ANTES DE USAR EL TEMA DE HERENCIA  ***
+****************************************************************
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tasks</title>
+    </head>
+    <body>
+        <h1>Add Task:</h1>
+        <form action="">
+            <input type="text", name="task">
+            <input type="submit">
+        </form>
+    </body>
+</html>
+-->
